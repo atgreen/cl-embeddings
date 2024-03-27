@@ -23,7 +23,7 @@
 ;;; SOFTWARE.
 ;;;
 
-(package :embeddings)
+(in-package :embeddings)
 
 (defclass embeddings ()
   ())
