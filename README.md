@@ -16,6 +16,13 @@ OpenAI is the only supported provider today.  Use it like so:
   (get-embeddings embeddings "This is some text."))
 ```
 
+Related Projects
+-----------------
+
+See also [cl-completions](https://github.com/atgreen/cl-completions)
+for a similarly styled LLM completions library, and
+[cl-chroma](https://github.com/atgreen/cl-chroma) for a Lisp interface
+to the [Chroma](https://www.trychroma.com/) vector database.
 
 Author and License
 -------------------
