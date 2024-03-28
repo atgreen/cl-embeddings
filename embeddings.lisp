@@ -33,7 +33,7 @@
    (api-key :initarg :api-key)
    (model :initarg :model :initform "text-embedding-3-small")))
 
-(defmethod get-embeddings ((provider openai-embeddings) text)
+(defmethod get-embedding ((provider openai-embeddings) text)
   (with-slots (endpoint api-key model) provider
     (let* ((headers `(("Content-Type" . "application/json")
                       ("Authorization" . ,(concatenate 'string "Bearer " api-key))))
