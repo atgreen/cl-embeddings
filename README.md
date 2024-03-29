@@ -9,7 +9,7 @@ Usage
 $ ocicl install embeddings
 ```
 
-`cl-embeddings` supports both ollama and OpenAI APIs.
+`cl-embeddings` supports both [ollama](https://ollama.com/) and [OpenAI](https://openai.com/blog/openai-api) APIs.
 
 Use ollama models like so:
 ```
