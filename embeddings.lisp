@@ -26,7 +26,28 @@
 (in-package :embeddings)
 
 (defclass embeddings ()
-  ())
+  ((endpoint :initarg :endpoint)))
+
+(defclass ollama-embeddings (embeddings)
+  ((endpoint :initform "http://localhost:11434/api/embeddings")
+   (model :initarg :model)))
+
+(defmethod get-embedding ((provider ollama-embeddings) text)
+  (with-slots (endpoint api-key model) provider
+    (let* ((headers `(("Content-Type" . "application/json")))
+           (payload (json:encode-json-to-string `(("prompt" . ,text) ("model" . ,model))))
+           (response (drakma:http-request endpoint
+                                          :method :post
+                                          :additional-headers headers
+                                          :content payload
+                                          :content-type "application/json")))
+      (let ((json-as-list
+              (json:decode-json-from-string
+               (flexi-streams:octets-to-string response :external-format :utf-8))))
+        (let ((e (cdr (assoc :error json-as-list))))
+          (if e
+              (error e)
+              (cdr (assoc :embedding json-as-list))))))))
 
 (defclass openai-embeddings (embeddings)
   ((endpoint :initform "https://api.openai.com/v1/embeddings")

@@ -9,11 +9,18 @@ Usage
 $ ocicl install embeddings
 ```
 
-OpenAI is the only supported provider today.  Use it like so:
+`cl-embeddings` supports both ollama and OpenAI APIs.
 
+Use ollama models like so:
 ```
-(let ((embeddings (make-instance 'openai-embeddings :api-key OPENAI-API-KEY)))
-  (get-embeddings embeddings "This is some text."))
+(let ((embedder (make-instance 'ollama-embeddings :model "mistral:latest")))
+  (get-embeddings embedder "This is some text."))
+```
+
+And use OpenAI models like so:
+```
+(let ((embedder (make-instance 'openai-embeddings :api-key OPENAI-API-KEY)))
+  (get-embeddings embedder "This is some text."))
 ```
 
 Related Projects
