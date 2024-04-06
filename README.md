@@ -26,10 +26,10 @@ And use OpenAI models like so:
 Related Projects
 -----------------
 
-See also [cl-completions](https://github.com/atgreen/cl-completions)
-for a similarly styled LLM completions library, and
-[cl-chroma](https://github.com/atgreen/cl-chroma) for a Lisp interface
-to the [Chroma](https://www.trychroma.com/) vector database.
+* [cl-text-splitter](https://github.com/atgreen/cl-text-splitter): a text splitting library
+* [cl-completions](https://github.com/atgreen/cl-completions): an LLM completions library
+* [cl-chroma](https://github.com/atgreen/cl-chroma): for a Lisp interface to the [Chroma](https://www.trychroma.com/) vector database.
+* [cl-chat](https://github.com/atgreen/cl-chat): a wrapper around `completions` to maintain chat history,
 
 Author and License
 -------------------
